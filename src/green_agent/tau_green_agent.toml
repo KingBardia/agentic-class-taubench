@@ -1,6 +1,8 @@
+# Custom: Focused on airline domain with turn efficiency metric
 name = "tau_green_agent"
-description = "The assessment hosting agent for tau-bench."
-version = "0.1.0"
+description = "Tau-Bench Airline Assessment with Turn Efficiency - measures agent success and interaction efficiency."
+version = "0.2.0"
+url = "https://tau-bench.uberr.uk"
 
 defaultInputModes = ["text"]
 defaultOutputModes = ["text"]
@@ -8,12 +10,13 @@ defaultOutputModes = ["text"]
 streaming = false
 
 [[skills]]
-id = "host_assess_tau_bench"
-name = "Tau-bench assessment hosting"
+id = "host_assess_tau_bench_airline"
+name = "Tau-bench Airline Assessment with Efficiency Metric"
 description = """
-Assess the tool-calling ability of an agent.
+Assess the tool-calling ability of an agent on airline domain tasks.
+Tracks success rate and turn efficiency (number of interaction turns).
 """
-tags = ["green agent", "assessment hosting", "tau-bench"]
+tags = ["green agent", "assessment hosting", "tau-bench", "airline", "efficiency"]
 examples = ["""    
 Your task is to instantiate tau-bench to test the agent located at:
 <white_agent_url>
@@ -22,10 +25,10 @@ http://localhost:9002/
 You should use the following env configuration:
 <env_config>
 {
-  "env": "retail",
+  "env": "airline",
   "user_strategy": "llm",
-  "user_model": "openai/gpt-4o",
-  "user_provider": "openai",
+  "user_model": "claude-3-haiku-20240307",
+  "user_provider": "anthropic",
   "task_split": "test",
   "task_ids": [
     1
